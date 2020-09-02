@@ -12,10 +12,11 @@ class App extends React.Component {
     };
   }
 
-  changeVideo() {
+  changeVideo(currentVideo) {
     this.setState({
-      currentVideo: this.props.video
+      currentVideo: currentVideo
     });
+    console.log(this.setState);
   }
 
   render() {
@@ -40,7 +41,7 @@ class App extends React.Component {
 
         {/* VIDEO LIST */}
         <div className="col-md-5">
-          <VideoList videos={this.state.videoList} state={this.state} />
+          <VideoList videos={this.state.videoList} clickFunc={this.changeVideo.bind(this)} />
           {/* <div><h5><em>videoList</em> view goes here</h5></div> */}
         </div>
 
